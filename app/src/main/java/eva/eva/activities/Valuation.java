@@ -1,4 +1,4 @@
-package eva.eva;
+package eva.eva.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import eva.eva.R;
 
 public class Valuation extends AppCompatActivity {
 

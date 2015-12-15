@@ -1,10 +1,12 @@
-package eva.eva;
+package eva.eva.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TabHost;
+
+import eva.eva.R;
 
 /**
  * Created by Luke on 15.12.2015.
