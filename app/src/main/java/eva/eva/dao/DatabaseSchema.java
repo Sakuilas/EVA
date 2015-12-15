@@ -21,7 +21,6 @@ public final class DatabaseSchema {
         public static final String TABLE_NAME = "studenten";
         public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_NAME_PASSWORT = "passwort";
-        public static final String COLUMN_ADDRESS_FK = "address_fk";
     }
 
     /**
