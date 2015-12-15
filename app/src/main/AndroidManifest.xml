@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Valuation"></activity>
+        <activity android:name=".Manager"></activity>
     </application>
 
 </manifest>
