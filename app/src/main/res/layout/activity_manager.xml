@@ -54,6 +54,8 @@
                         android:layout_gravity="center_horizontal" />
                 </LinearLayout>
 
+                <include layout="@layout/content_manager"/>
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
