@@ -21,7 +21,7 @@ public class Login extends ActionBarActivity implements  View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        mydb = new DatabaseHelper(this);
+        //mydb = new DatabaseHelper(this);
 
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
