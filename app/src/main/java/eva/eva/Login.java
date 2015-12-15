@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 public class Login extends ActionBarActivity implements  View.OnClickListener {
 
+    DatabaseHelper mydb;
     Button bLogin;
     EditText etUsername, etPassword;
 
@@ -21,6 +22,7 @@ public class Login extends ActionBarActivity implements  View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        mydb = new DatabaseHelper(this);
 
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
