@@ -13,14 +13,14 @@ import eva.eva.dao.DatabaseSchema.Student;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "eva.db";
-    private static final String SQL_CREATE_TABLE_STUDENT =
+    public static final String SQL_CREATE_TABLE_STUDENT =
             "CREATE TABLE " + Student.TABLE_NAME + " (" +
                     Student._ID + "INTEGER PRIMARY KEY," +
                     Student.COLUMN_NAME_USERNAME + " TEXT," +
                     Student.COLUMN_NAME_PASSWORT + " TEXT" + ");";
 
 
-    private static final String SQL_CREATE_TABLE_RATING =
+    public static final String SQL_CREATE_TABLE_RATING =
             "CREATE TABLE " + Rating.TABLE_NAME + " (" +
                     Rating._ID + " INTEGER PRIMARY KEY," +
                     Rating.COLUMN_NAME_MOTIVATION + " INTEGER," +
@@ -33,14 +33,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "FOREIGN KEY(" + Rating.COLUMN_STUDENT_FK + ") REFERENCES " + Student.TABLE_NAME + "(" + Student._ID + ")" +
                     ");";
 
-    private static final String SQL_DROP_TABLE_RATING = "DROP TABLE IF EXISTS " + Rating.TABLE_NAME + ";";
-    private static final String SQL_DROP_TABLE_STUDENT = "DROP TABLE IF EXISTS " + Student.TABLE_NAME + ";";
+    public static final String SQL_DROP_TABLE_RATING = "DROP TABLE IF EXISTS " + Rating.TABLE_NAME + ";";
+    public static final String SQL_DROP_TABLE_STUDENT = "DROP TABLE IF EXISTS " + Student.TABLE_NAME + ";";
 
-    private static DatabaseHelper instance = null;
-    private Context ctx;
+    public static DatabaseHelper instance = null;
+    public Context ctx;
 
 
-    private DatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         this.ctx = context;
     }
