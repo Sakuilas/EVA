@@ -33,21 +33,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "FOREIGN KEY(" + Rating.COLUMN_STUDENT_FK + ") REFERENCES " + Student.TABLE_NAME + "(" + Student._ID + ")" +
                     ");";
 
+    private static final String SQL_DROP_TABLE_RATING = "DROP TABLE IF EXISTS " + Rating.TABLE_NAME + ";";
+    private static final String SQL_DROP_TABLE_STUDENT = "DROP TABLE IF EXISTS " + Student.TABLE_NAME + ";";
+
+    private static DatabaseHelper instance = null;
+    private Context ctx;
 
 
-    public DatabaseHelper(Context context) {
+    private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
+        this.ctx = context;
     }
 
+    public static DatabaseHelper getInstance(Context ctx) {
+        if (instance == null) {
+            return new DatabaseHelper(ctx.getApplicationContext());
+        }
+        return instance;
+    }
+
+    /**
+     * Called when database gets created for first time and used to create tables
+     *
+     * @param db the database
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME+ " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, VORNAME TEXT, BEWERTUNG INTEGER)");
+        db.execSQL(SQL_CREATE_TABLE_STUDENT);
+        db.execSQL(SQL_CREATE_TABLE_RATING);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS"+ TABLE_NAME);
+        db.execSQL(SQL_DROP_TABLE_RATING);
+        db.execSQL(SQL_DROP_TABLE_STUDENT);
         onCreate(db);
     }
 }
