@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_register">register</string>
     <string name="title_activity_login">Login</string>
+    <string name="Tab1">Tab1</string>
+    <string name="Tab2">Tab2</string>
 </resources>
