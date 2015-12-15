@@ -5,47 +5,53 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Valuation extends AppCompatActivity {
 
-    private static Button button_sbm;
-    private static TextView text_v;
-    private static RatingBar rating_b;
+    private static Button button_bestätigen;
+    private static RatingBar rating_motivation;
+    private static RatingBar rating_teamfähigkeit;
+    private static RatingBar rating_knowhow;
+    private static RatingBar rating_kommunikation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valuation);
-        listenerForRatingBar();
+        listenerForRatingBars();
         onButtonClickListener();
     }
 
-    public void listenerForRatingBar() {
-        rating_b = (RatingBar) findViewById(R.id.ratingBar);
-        text_v = (TextView) findViewById(R.id.textView);
+    public void listenerForRatingBars() {
+        rating_motivation = (RatingBar) findViewById(R.id.rating_motivation);
+        rating_teamfähigkeit = (RatingBar) findViewById(R.id.rating_teamfaehigkeit);
+        rating_knowhow = (RatingBar) findViewById(R.id.rating_knowhow);
+        rating_kommunikation = (RatingBar) findViewById(R.id.rating_kommunikation);
 
-        rating_b.setOnRatingBarChangeListener(
+        rating_motivation.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                        text_v.setText(String.valueOf(rating));
                     }
                 }
         );
     }
 
     public void onButtonClickListener() {
-        rating_b = (RatingBar) findViewById(R.id.ratingBar);
-        button_sbm = (Button) findViewById(R.id.button);
+        rating_motivation = (RatingBar) findViewById(R.id.rating_motivation);
+        rating_teamfähigkeit = (RatingBar) findViewById(R.id.rating_teamfaehigkeit);
+        button_bestätigen = (Button) findViewById(R.id.button);
 
-        button_sbm.setOnClickListener(
+        button_bestätigen.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(Valuation.this,
-                                String.valueOf(rating_b.getRating()),
+                                String.valueOf(rating_motivation.getRating()
+                                + rating_teamfähigkeit.getRating()
+                                + rating_knowhow.getRating()
+                                + rating_kommunikation.getRating()),
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
