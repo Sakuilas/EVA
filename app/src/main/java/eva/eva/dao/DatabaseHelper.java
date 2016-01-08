@@ -8,7 +8,7 @@ import eva.eva.dao.DatabaseSchema.Rating;
 import eva.eva.dao.DatabaseSchema.Student;
 
 /**
- * Created by Norman on 15.12.2015.
+ * Updated by Lukas on 08.01.2015.
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -61,6 +61,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE_STUDENT);
         db.execSQL(SQL_CREATE_TABLE_RATING);
+
+        String ROW2 = "INSERT INTO " + Student.TABLE_NAME + " Values (1 , 'Lukas', 'password');";
+        String ROW3 = "INSERT INTO " + Student.TABLE_NAME + " Values (2 , 'Stephan', 'password');";
+        String ROW4 = "INSERT INTO " + Student.TABLE_NAME + " Values (3 , 'Norman', 'password');";
+        String ROW5 = "INSERT INTO " + Rating.TABLE_NAME + " (" + Rating._ID + ", " + Rating.COLUMN_NAME_MOTIVATION + ", " + Rating.COLUMN_NAME_TEAMFAEHIGKEIT + ", " + Rating.COLUMN_NAME_KOMMUNIKATION + ", " + Rating.COLUMN_NAME_KNOWHOW + ", " + Rating.COLUMN_STUDENTB_FK + ", " + Rating.COLUMN_STUDENT_FK + ")" +
+                " Values " +
+                "(1, 3, 3, 3, 3, 1, 1, 1)," +
+                "(2, 3, 3, 3, 3, 1, 1, 2)," +
+                "(3, 3, 3, 3, 3, 1, 1, 3),";
+
+        db.execSQL(ROW2);
+        db.execSQL(ROW3);
+        db.execSQL(ROW4);
+        db.execSQL(ROW5);
     }
 
     @Override
